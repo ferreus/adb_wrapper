@@ -8,7 +8,12 @@ count=$($ADB devices | wc -l)
 if [ "$1" == "devices" ]; then
 	$ADB $@
 	exit
+elif [ "$1" == "select" ]; then
+	$DIR/select_device.sh
+	exit
 fi
+
+
 
 if [ $count -eq 2 ]; then
 	echo "error: no devices/emulators found :("
